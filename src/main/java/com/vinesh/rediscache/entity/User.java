@@ -1,17 +1,15 @@
 package com.vinesh.rediscache.entity;
 
+import javax.persistence.*;
 import java.io.Serializable;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import java.math.BigInteger;
 
 @Entity
+@Table(name = "user", schema = "public")
 public class User implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Integer id;
+	private BigInteger id;
 	private String name;
 	private String email;
 	private Integer age;
@@ -21,7 +19,7 @@ public class User implements Serializable{
 	}
 	
 	
-	public User(Integer id, String name, String email, Integer age) {
+	public User(BigInteger id, String name, String email, Integer age) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -30,10 +28,10 @@ public class User implements Serializable{
 	}
 
 
-	public Integer getId() {
+	public BigInteger getId() {
 		return id;
 	}
-	public void setId(Integer id) {
+	public void setId(BigInteger id) {
 		this.id = id;
 	}
 	public String getName() {

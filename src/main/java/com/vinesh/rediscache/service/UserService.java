@@ -1,5 +1,6 @@
 package com.vinesh.rediscache.service;
 
+import java.math.BigInteger;
 import java.util.Optional;
 
 import org.slf4j.Logger;
@@ -18,14 +19,10 @@ public class UserService {
 	@Autowired
 	UserRepository userRepository;
 
-	public User getUserById(Integer id) {
+	public User getUserById(BigInteger id) {
 		log.info("Getting customer information for id {}", id);
 		Optional<User> user = userRepository.findById(id);
-		if (user.isPresent()) {
-			return user.get();
-		} else {
-			return null;
-		}
+		return user.orElse(null);
 	}
 
 	public User create(User user) {
@@ -33,7 +30,7 @@ public class UserService {
 	}
 
 	public User update(User user) {
-		Integer id = user.getId();
+		BigInteger id = user.getId();
 		User userInDb = getUserById(id);
 		if (userInDb != null) {
 			return create(user);
@@ -42,7 +39,7 @@ public class UserService {
 		}
 	}
 	
-	public void delete(Integer id) {
+	public void delete(BigInteger id) {
 		userRepository.deleteById(id);
 	}
 }
