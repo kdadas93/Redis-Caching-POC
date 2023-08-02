@@ -22,7 +22,6 @@ public class UserController {
 	UserService userService;
 	
 	@GetMapping("/{id}")
-	@Cacheable(value= "users", key="#id")
 	public User getUser(@PathVariable BigInteger id) {
 		log.info(">> User Controller: get user by id: " + id);
 		return userService.getUserById(id);
@@ -35,14 +34,12 @@ public class UserController {
 	}
 	
 	@PutMapping
-	@CachePut(value="users", key="#user.getId()")
 	public User updateUser(@RequestBody User user) {
 		log.info(">> User Controller: update user: " + user.toString());
 		return userService.update(user);
 	}
 	
 	@DeleteMapping("/{id}")
-	@CacheEvict(value= "users", allEntries = false, key="#id")
 	public void removeUser(@PathVariable BigInteger id) {
 		log.info(">> User Controller: delete user: " + id);
 		userService.delete(id);
