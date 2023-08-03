@@ -32,6 +32,8 @@ W yaml  	externalIPs:
 
 minikube tunnel
 
+docker run --hostname=15679f1b71de --mac-address=02:42:ac:11:00:06 --env=SPRING_PROFILES_ACTIVE=kubernetes --env=PATH=/opt/openjdk-17/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin --env=JAVA_HOME=/opt/openjdk-17 --env=JAVA_VERSION=17-ea+14 --workdir=/app -p 8080 --runtime=runc -d redis-poc:2.0.0
+
 
 
 

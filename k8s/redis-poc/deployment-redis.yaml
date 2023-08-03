@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: redis-poc
-          image: redis-poc:2.0.0
+          image: redis-poc:1.0.0
           ports:
             - name: http
               protocol: TCP
