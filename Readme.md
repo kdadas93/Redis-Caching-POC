@@ -1,6 +1,6 @@
 Uruchomienie redis
 
-
+docker run --name redis_persist -p 6379:6379 -d redis redis-server --save 60 1 --loglevel warning
 
 docker build -t redis-poc .		buduje obraz dockera
 docker build -t redis-poc:2.0.0 .
