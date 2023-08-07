@@ -24,9 +24,9 @@ class CountryCodesController {
             return countryCodesService.getCountryCodes();
         }catch (Exception e) {
             log.info(">> CountryCodesController: Exception");
-            log.info(">> CountryCodesController: Exception");
+            log.info(e.toString());
+            throw e;
         }
-        return countryCodesService.getCountryCodes();
     }
 
     @PutMapping
